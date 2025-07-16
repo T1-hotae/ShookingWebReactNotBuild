@@ -1,0 +1,44 @@
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%; /* 카드 너비에 맞게 */
+  height: 150px; /* 높이 고정 (원하는 값) */
+  object-fit: cover; /* 비율 유지하며 꽉 채우고 잘림 허용 */
+  display: block; /* 인라인 여백 제거 */
+  margin: 0 auto; /* 필요 시 중앙 정렬 */
+}
+
+.card h3 {
+  margin: 0.5rem 0 0.2rem;
+}
+
+.card p {
+  margin: 0.2rem 0;
+  color: #555;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.product-info {
+  padding: 1rem 1rem 2rem 1rem;
+  height: 50%;
+}
+
+button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  align-self: flex-start;
+}

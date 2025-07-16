@@ -1,0 +1,48 @@
+.header {
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header,
+.info,
+.product-list {
+  max-width: 480px; /* 최대 넓이 제한 */
+  width: 100%; /* 모바일에서 가득 차도록 */
+  margin: 0 auto; /* 가운데 정렬 */
+  padding: 0 1rem; /* 좌우 여백 */
+}
+
+.header h1 {
+  font-size: 1.5rem;
+}
+
+/* Cart-Icon */
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-icon img {
+  width: 30px; /* 원하는 크기로 조절 */
+  height: auto; /* 비율 유지 */
+  display: block; /* 불필요한 여백 제거 */
+}
+
+.cart-icon #badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
