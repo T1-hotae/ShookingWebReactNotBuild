@@ -1,12 +1,14 @@
-# React + Vite
+# 고객의 요구사항
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- [ ] 모바일 UI
+- [ ] 상품 사진
+- [ ] 장바구니 담긴 갯수 실시간 변화
+- [ ] 배포 URL
 
-Currently, two official plugins are available:
+# 기능 목록 체크리스트
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [ ] 이미지가 포함된 상품 카드
+- [ ] 2개의 컬럼으로 구성된 상품 목록 레이아웃
+- [ ] 상품 카드에서 담기 버튼과 담김 상태 변화
+- [ ] 담기 버튼을 누른 후, 헤더에 담긴 상품의 갯수 변화
+- [ ] 담긴 상품의 리스트 및 추가 삭제가 있는 장바구니 리스트
