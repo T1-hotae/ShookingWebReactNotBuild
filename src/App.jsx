@@ -14,6 +14,8 @@ function App() {
       <Info count={6} />
       <ProductList>
         <ProductCard badgeCount={badgeCount} setBadgeCount={setBadgeCount} />
+        <ProductCard badgeCount={badgeCount} setBadgeCount={setBadgeCount} />
+        <ProductCard badgeCount={badgeCount} setBadgeCount={setBadgeCount} />
       </ProductList>
     </>
   );
