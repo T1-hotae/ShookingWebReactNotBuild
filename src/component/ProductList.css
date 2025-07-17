@@ -3,4 +3,5 @@
   grid-template-columns: 1fr 1fr; /* 두 컬럼 */
   gap: 1rem;
   padding: 1rem;
+  box-sizing: border-box; /* 패딩 포함 */
 }
