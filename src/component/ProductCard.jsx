@@ -1,15 +1,7 @@
 import { useState } from "react";
 import "./ProductCard.css";
 
-const ProductCard = ({
-  id,
-  name,
-  info,
-  price,
-  img,
-  badgeCount,
-  setBadgeCount,
-}) => {
+const ProductCard = ({ name, info, price, img, badgeCount, setBadgeCount }) => {
   const [isAdded, setIsAdded] = useState(false);
 
   const handleAddToCart = () => {

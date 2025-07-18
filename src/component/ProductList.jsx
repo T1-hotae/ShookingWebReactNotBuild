@@ -6,7 +6,6 @@ const ProductList = ({ products, badgeCount, setBadgeCount }) => {
     <div className="product-list">
       {products.map((product) => (
         <ProductCard
-          id={product.id}
           name={product.name}
           info={product.info}
           price={product.price}
