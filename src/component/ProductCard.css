@@ -33,7 +33,7 @@
   height: 50%;
 }
 
-button {
+.btn .btnPutIn {
   background: #000;
   color: #fff;
   border: none;
@@ -41,4 +41,14 @@ button {
   border-radius: 30px;
   cursor: pointer;
   align-self: flex-start;
+  margin-right: 10px;
+}
+
+.btn .btnBuy {
+  background-color: yellow;
+  color: #000;
+  border: none;
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
 }
