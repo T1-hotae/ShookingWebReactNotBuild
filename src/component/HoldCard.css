@@ -1,0 +1,23 @@
+.HoldCard {
+  text-align: center;
+  margin: 20px 0px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.HoldCard .CardAdd {
+  background-color: #cccccc;
+  font-size: 36px;
+  cursor: pointer;
+  width: 250px;
+  height: 150px;
+
+  margin: 10px 20px;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,16 +1,16 @@
 .header {
   background: #000;
-  color: #fff;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  width: 100%;
 }
 
 header,
 .info,
 .product-list {
-  max-width: 480px; /* 최대 넓이 제한 */
   width: 100%; /* 모바일에서 가득 차도록 */
   margin: 0 auto; /* 가운데 정렬 */
   padding: 0 1rem; /* 좌우 여백 */

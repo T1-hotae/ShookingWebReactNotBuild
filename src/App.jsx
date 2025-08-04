@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Payment from "./pages/Payment";
+import CardInfo from "./pages/CardInfo";
 
 function App() {
   const [badgeCount, setBadgeCount] = useState(0);
@@ -35,6 +36,7 @@ function App() {
             }
           />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/cardinfo" element={<CardInfo />} />
         </Routes>
       </ProductContext.Provider>
     </>

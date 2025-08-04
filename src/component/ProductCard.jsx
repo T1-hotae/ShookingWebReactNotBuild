@@ -1,7 +1,6 @@
 import "./ProductCard.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CardNumberInput from "./CardNumberInput";
 
 const ProductCard = ({
   id,
@@ -26,12 +25,8 @@ const ProductCard = ({
 
   const nav = useNavigate();
 
-  const onClickCardNum = () => {
-    <CardNumberInput />; // 라우터를 배워야함.
-  };
-
   return (
-    <div className="card">
+    <div className="ProductCard">
       <img src={img} alt="신발 이미지" />
       <div className="product-info">
         <h3>{name}</h3>
@@ -45,7 +40,7 @@ const ProductCard = ({
           >
             {isAdded ? "담김!" : "담기"}
           </button>
-          <button className="btnBuy" onClick={onClickCardNum}>
+          <button className="btnBuy" onClick={() => nav("/payment")}>
             구매
           </button>
         </div>

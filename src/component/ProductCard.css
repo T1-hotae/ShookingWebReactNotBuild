@@ -1,25 +1,27 @@
-.card {
+.ProductCard {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin: 0px 20px;
 }
 
-.card img {
-  width: 100%; /* 카드 너비에 맞게 */
-  height: 150px; /* 높이 고정 (원하는 값) */
+/* 카드 내부 위치 CSS 스타일 */
+.ProductCard img {
+  width: 100%;
+  height: 150px;
   object-fit: cover; /* 비율 유지하며 꽉 채우고 잘림 허용 */
   display: block; /* 인라인 여백 제거 */
   margin: 0 auto; /* 필요 시 중앙 정렬 */
 }
 
-.card h3 {
+.ProductCard h3 {
   margin: 0.5rem 0 0.2rem;
 }
 
-.card p {
+.ProductCard p {
   margin: 0.2rem 0;
   color: #555;
 }
