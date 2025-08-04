@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ProductCard from "../ProductCard";
+import ProductCard from "../component/ProductCard";
 
 describe("ProductCard", () => {
   it("상품 정보가 화면에 표시된다.", () => {

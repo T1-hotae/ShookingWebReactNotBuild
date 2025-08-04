@@ -4,7 +4,7 @@ const CardInfoInput = () => {
   return (
     <div>
       <section>
-        <Card />
+        <Card cardNum={"cardNum"} name={"name"} date={"date"} />
       </section>
       <section>
         <p>카드 번호</p>
@@ -25,7 +25,9 @@ const CardInfoInput = () => {
         <p>보안코드(CVC/CVV)</p>
         <input type="text" />
       </section>
-      <section></section>
+      <section>
+        <p>카드 비밀번호</p>
+      </section>
     </div>
   );
 };
