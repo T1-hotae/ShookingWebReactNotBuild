@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import Header from "./component/Header";
-import Info from "./component/Info";
-import ProductList from "./component/ProductList";
+import { useEffect, useState, createContext } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Payment from "./pages/Payment";
 
 function App() {
   const [badgeCount, setBadgeCount] = useState(0);
   const [products, setProducts] = useState([]);
+
+  const ProductContext = createContext();
 
   useEffect(() => {
     fetch("https://productcardapi.vercel.app/data.json")
@@ -19,13 +22,21 @@ function App() {
 
   return (
     <>
-      <Header badgeCount={badgeCount} />
-      <Info count={products.length} />
-      <ProductList
-        products={products}
-        badgeCount={badgeCount}
-        setBadgeCount={setBadgeCount}
-      />
+      <ProductContext.Provider value={{ badgeCount, products, setBadgeCount }}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                badgeCount={badgeCount}
+                products={products}
+                setBadgeCount={setBadgeCount}
+              />
+            }
+          />
+          <Route path="/payment" element={<Payment />} />
+        </Routes>
+      </ProductContext.Provider>
     </>
   );
 }

@@ -1,5 +1,6 @@
-import { useState } from "react";
 import "./ProductCard.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CardNumberInput from "./CardNumberInput";
 
 const ProductCard = ({
@@ -22,6 +23,8 @@ const ProductCard = ({
     alert(`${name}이(가) 카트에 담겼습니다.`);
     setBadgeCount(badgeCount + 1);
   };
+
+  const nav = useNavigate();
 
   const onClickCardNum = () => {
     <CardNumberInput />; // 라우터를 배워야함.
