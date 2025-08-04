@@ -16,7 +16,6 @@ const HeaderPay = ({ title, leftChild }) => {
           <div className="title">{title}</div>
         </div>
       </div>
-
       <div className="material-icons" onClick={() => nav("/")}>
         close
       </div>
