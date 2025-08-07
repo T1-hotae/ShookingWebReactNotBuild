@@ -2,7 +2,7 @@ import "./Card.css";
 
 const Card = ({ id, cardNum, name, date }) => {
   const cardNumString = () => {
-    return cardNum.replace(/-/g, " ");
+    return String(cardNum).replace(/-/g, " ");
   };
 
   const limitName = () => {
@@ -11,16 +11,19 @@ const Card = ({ id, cardNum, name, date }) => {
     }
     return name;
   };
+
   const cardName = limitName();
-  const cardNumInCard = cardNumString();
+  const cardNumber = cardNumString();
 
   return (
     <div className="Card">
       <div className="GoldChip"></div>
-      <div className="CardNumInCard">{cardNumInCard}</div>
-      <div className="CardBottom">
-        <div className="name">{cardName}</div>
-        <div className="date">{date}</div>
+      <div className="CardInputInfo">
+        <div className="CardNumber">{cardNumber}</div>
+        <div className="CardBottom">
+          <div className="name">{cardName === "" ? "NAME" : cardName}</div>
+          <div className="date">{date === "" ? "MM/YY" : date}</div>
+        </div>
       </div>
     </div>
   );

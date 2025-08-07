@@ -5,7 +5,7 @@
   padding: 5px 35px;
 }
 
-.CardInfoInput .Card {
+.CardInfoInput .CardList {
   width: 100%;
   display: flex;
   align-items: center; /* 세로축 가운데 정렬 */
@@ -93,6 +93,6 @@
   padding: 10px 10px;
   text-align: center;
   border-radius: 10px;
-  margin: 20px 0px;
+  margin: 20px 0px 0px 0px;
   cursor: pointer;
 }

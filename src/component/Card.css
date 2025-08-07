@@ -3,7 +3,7 @@
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   color: white;
-  max-width: 250px;
+  width: 250px;
   height: 150px;
 
   margin: 10px auto;
@@ -16,28 +16,34 @@
   box-sizing: border-box;
 }
 
-.GoldChip {
+.Card .GoldChip {
   position: absolute;
   left: 20px;
-  top: 40px;
+  top: 40%;
   width: 45px;
   height: 30px;
   border-radius: 5px;
   background-color: #d2c725;
 }
 
-.CardNumInCard {
+.Card .CardInputInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Card .CardInputInfo .CardNumber {
   position: absolute;
   font-size: 18px;
-  top: 75px;
+  bottom: 35px;
   letter-spacing: 2px;
 }
 
-.CardBottom {
+.Card .CardInputInfo .CardBottom {
   position: absolute;
   display: flex;
   justify-content: space-between;
   width: 85%;
-  top: 100px;
+  bottom: 20px;
   font-size: 14px;
 }

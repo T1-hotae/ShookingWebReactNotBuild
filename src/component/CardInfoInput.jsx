@@ -1,49 +1,66 @@
+import { useNavigate } from "react-router-dom";
+import { ProductContext } from "../App";
 import Card from "./Card";
 import "./CardInfoInput.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 const CardInfoInput = () => {
+  const [input, setInput] = useState({
+    cardNum: "",
+    date: "",
+    name: "",
+    cvc: "",
+    pwd1: "",
+    pwd2: "",
+  });
+
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setInput({
+      ...input,
+      [name]: value,
+    });
+  };
   const [text, setText] = useState(0);
-  const [cardNum, setCardNum] = useState("");
-  const [date, setDate] = useState("");
   const [name, setName] = useState("");
-  const [cvc, setCvc] = useState("");
-  const [pwd1, setPwd1] = useState("");
-  const [pwd2, setPwd2] = useState("");
-
-  const onChangeCardNum = (e) => {
-    setCardNum(e.target.value);
-  };
-
-  const onChangeDate = (e) => {
-    setDate(e.target.value);
-  };
 
   const onChangeName = (e) => {
     setName(e.target.value);
     setText(e.target.value);
   };
 
-  const onChangeCvc = (e) => {
-    setCvc(e.target.value);
+  const onCreate = useContext(ProductContext);
+  const nav = useNavigate();
+
+  const onSubmit = (input) => {
+    onCreate(
+      input.cardNum,
+      input.date,
+      (input.name = name),
+      input.cvc,
+      input.pwd1,
+      input.pwd2
+    );
+
+    nav("/payment", { replace: true });
   };
-  const onChangePwd1 = (e) => {
-    setPwd1(e.target.value);
-  };
-  const onChangePwd2 = (e) => {
-    setPwd2(e.target.value);
+
+  const onClickSubmit = () => {
+    console.log(input);
+    onSubmit(input);
   };
 
   return (
     <div className="CardInfoInput">
-      <section className="Card">
-        <Card cardNum={cardNum} name={name} date={date} />
+      <section className="CardList">
+        <Card cardNum={input.cardNum} name={name} date={input.date} />
       </section>
       <section className="CardNum">
         <p>카드 번호</p>
         <input
-          value={cardNum}
-          onChange={onChangeCardNum}
+          name="cardNum"
+          value={input.cardNum}
+          onChange={onChangeInput}
           className="CardNumInput"
           type="text"
           maxLength={19}
@@ -52,8 +69,9 @@ const CardInfoInput = () => {
       <section>
         <p>만료일</p>
         <input
-          value={date}
-          onChange={onChangeDate}
+          name="date"
+          value={input.date}
+          onChange={onChangeInput}
           className="CardDateInput"
           type="text"
           placeholder="MM / YY"
@@ -63,9 +81,10 @@ const CardInfoInput = () => {
       <section>
         <div className="CardNameInfo">
           <p>카드 소유자 이름</p>
-          <p>{text.length <= 0 ? 0 : text.length}/30</p>
+          <p>{text.length < 1 ? 0 : text.length}/30</p>
         </div>
         <input
+          name="name"
           type="text"
           value={name}
           maxLength={30}
@@ -78,8 +97,9 @@ const CardInfoInput = () => {
         <p>보안코드(CVC/CVV)</p>
         <div className="CardCode">
           <input
-            value={cvc}
-            onChange={onChangeCvc}
+            name="cvc"
+            value={input.cvc}
+            onChange={onChangeInput}
             className="CardCodeNum"
             type="text"
             maxLength={4}
@@ -91,15 +111,17 @@ const CardInfoInput = () => {
         <p>카드 비밀번호</p>
         <div className="CardPwd">
           <input
-            value={pwd1}
-            onChange={onChangePwd1}
+            name="pwd1"
+            value={input.pwd1}
+            onChange={onChangeInput}
             className="CardPwd1"
             type="text"
             maxLength={1}
           />
           <input
-            value={pwd2}
-            onChange={onChangePwd2}
+            name="pwd2"
+            value={input.pwd2}
+            onChange={onChangeInput}
             className="CardPwd2"
             type="text"
             maxLength={1}
@@ -108,9 +130,16 @@ const CardInfoInput = () => {
           <div>•</div>
         </div>
       </section>
-      {cardNum && date && name && cvc && pwd1 && pwd2 && (
-        <button className="btn-complete">작성 완료</button>
-      )}
+      {input.cardNum &&
+        input.date &&
+        name &&
+        input.cvc &&
+        input.pwd1 &&
+        input.pwd2 && (
+          <button className="btn-complete" onClick={onClickSubmit}>
+            작성 완료
+          </button>
+        )}
     </div>
   );
 };
