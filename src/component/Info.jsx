@@ -1,10 +1,10 @@
 import "./Info.css";
 
-const Info = (props) => {
+const Info = ({ title, count }) => {
   return (
-    <section class="info">
-      <h1>신발 상품 목록</h1>
-      <p>현재 {props.count}개의 상품이 있습니다.</p>
+    <section className="info">
+      <h1>{title}</h1>
+      <p>현재 {count}개의 상품이 있습니다.</p>
     </section>
   );
 };

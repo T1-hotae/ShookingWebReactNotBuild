@@ -1,25 +1,17 @@
 import Header from "../component/Header";
 import Info from "../component/Info";
 import ProductList from "../component/ProductList";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import useProduct from "../hooks/useProduct";
 
 const Home = () => {
   const [badgeCount, setBadgeCount] = useState(0);
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://productcardapi.vercel.app/data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.photo);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+  const products = useProduct();
 
   return (
     <>
       <Header badgeCount={badgeCount} />
-      <Info count={products.length} />
+      <Info title={"신발 상품 목록"} count={products.length} />
       <ProductList
         products={products}
         badgeCount={badgeCount}

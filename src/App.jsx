@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Payment from "./pages/Payment";
 import CardInfo from "./pages/CardInfo";
+import Cart from "./pages/Cart";
 
 export const ProductStateContext = createContext();
 export const ProductContext = createContext();
@@ -34,6 +35,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/cardinfo" element={<CardInfo />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </ProductContext.Provider>
       </ProductStateContext.Provider>
