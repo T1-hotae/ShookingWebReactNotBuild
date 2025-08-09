@@ -14,7 +14,7 @@ const HoldCard = ({ cardData }) => {
           {cardData.map((item) => (
             <div key={item.id} className="card-item">
               <Card {...item} />
-              <button className="btn-payment">이 카드로 결재하기</button>
+              <button className="btn-payment">이 카드로 결제하기</button>
             </div>
           ))}
         </div>

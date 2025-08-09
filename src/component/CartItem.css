@@ -1,0 +1,100 @@
+.CartItem {
+  display: flex;
+  align-items: center;
+  padding: 20px 35px;
+  gap: 20px;
+}
+
+.CartItem .item-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* 비율 유지하며 꽉 채우고 잘림 허용 */
+  display: block; /* 인라인 여백 제거 */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: none;
+  border-radius: 25px;
+
+  margin-left: 70px;
+}
+
+.CartItem .item-img > img {
+  width: 150px;
+  height: auto;
+
+  margin: 0 auto; /* 필요 시 중앙 정렬 */
+  justify-content: center;
+  align-items: center;
+}
+
+.CartItem .item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.CartItem .item-info div > p {
+  margin: 0 auto;
+}
+
+.CartItem .item-info .item-Name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.CartItem .item-info .item-price {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.CartItem .item-count {
+  display: flex;
+  gap: 10px;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: 24px;
+}
+
+.item-count .item-min {
+  display: flex;
+  cursor: pointer;
+
+  background-color: #eee;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.item-count .item-add {
+  display: flex;
+  cursor: pointer;
+
+  background-color: #eee;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.item-count .item-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: auto;
+}
