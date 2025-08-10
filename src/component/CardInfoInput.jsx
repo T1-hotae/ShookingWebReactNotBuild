@@ -30,7 +30,7 @@ const CardInfoInput = () => {
     setText(e.target.value);
   };
 
-  const onCreate = useContext(ProductContext);
+  const { onCreate } = useContext(ProductContext);
   const nav = useNavigate();
 
   const onSubmit = (input) => {

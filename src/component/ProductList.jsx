@@ -1,7 +1,12 @@
 import "./ProductList.css";
 import ProductCard from "./ProductCard";
+import { ProductStateContext } from "../App";
+import { useContext } from "react";
 
 const ProductList = ({ products, badgeCount, setBadgeCount }) => {
+  const { cartIds } = useContext(ProductStateContext);
+  console.log(cartIds);
+
   return (
     <div className="product-list">
       {products.map((product) => (
@@ -9,6 +14,7 @@ const ProductList = ({ products, badgeCount, setBadgeCount }) => {
           {...product}
           badgeCount={badgeCount}
           setBadgeCount={setBadgeCount}
+          isAdd={cartIds.includes(product.id)}
         />
       ))}
     </div>

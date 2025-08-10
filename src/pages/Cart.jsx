@@ -3,14 +3,18 @@ import Info from "../component/Info";
 import CartList from "../component/CartList";
 import Calculate from "../component/Calculate";
 import Button from "../component/Button";
+import { useContext } from "react";
+import { ProductStateContext } from "../App";
 
 const Cart = () => {
   const cartCount = 3;
+  const { cartIds } = useContext(ProductStateContext);
+
   return (
     <>
       <Header backBtn={true} />
       <Info title={"장바구니"} count={cartCount} />
-      <CartList />
+      <CartList cartIds={cartIds} />
       <Calculate />
       <Button text={"결제하기"} backgroundColor={"yellow"} width={"540"} />
     </>

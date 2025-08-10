@@ -4,7 +4,7 @@ import { ProductStateContext } from "../App";
 import { useContext } from "react";
 
 const Payment = () => {
-  const data = useContext(ProductStateContext);
+  const { data } = useContext(ProductStateContext);
 
   return (
     <div>

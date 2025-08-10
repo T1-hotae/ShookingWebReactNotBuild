@@ -27,10 +27,18 @@ function App() {
     setData((prev) => [...prev, newCard]);
   };
 
+  const [cartIds, setCartIds] = useState([]);
+
+  const onCart = (id) => {
+    const newCartId = id;
+
+    setCartIds((cartId) => [...cartId, newCartId]);
+  };
+
   return (
     <>
-      <ProductStateContext.Provider value={data}>
-        <ProductContext.Provider value={onCreate}>
+      <ProductStateContext.Provider value={{ data, cartIds }}>
+        <ProductContext.Provider value={{ onCreate, onCart }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/payment" element={<Payment />} />
