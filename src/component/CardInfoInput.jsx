@@ -3,6 +3,7 @@ import { ProductContext } from "../App";
 import Card from "./Card";
 import "./CardInfoInput.css";
 import { useState, useContext } from "react";
+import Button from "./Button";
 
 const CardInfoInput = () => {
   const [input, setInput] = useState({
@@ -136,9 +137,12 @@ const CardInfoInput = () => {
         input.cvc &&
         input.pwd1 &&
         input.pwd2 && (
-          <button className="btn-complete" onClick={onClickSubmit}>
-            작성 완료
-          </button>
+          <Button
+            text={"작성 완료"}
+            backgroundColor={"black"}
+            onClick={onClickSubmit}
+            width={"100"}
+          />
         )}
     </div>
   );

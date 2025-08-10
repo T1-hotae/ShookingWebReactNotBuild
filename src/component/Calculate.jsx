@@ -1,4 +1,5 @@
 import "./Calculate.css";
+import Button from "./Button";
 
 const checkPirce = (price) => {
   return price;
@@ -26,7 +27,6 @@ const Calculate = () => {
         <p className="amount-info">총 금액</p>
         <p className="amount-price">{productPrice + shippingFee} 원</p>
       </div>
-      <button className="btn-Amount">결제하기</button>
     </section>
   );
 };

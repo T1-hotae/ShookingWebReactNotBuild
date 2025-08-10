@@ -1,5 +1,4 @@
 import HeaderPay from "../component/HeaderPay";
-import Card from "../component/Card";
 import CardInfoInput from "../component/CardInfoInput";
 
 const CardInfo = () => {

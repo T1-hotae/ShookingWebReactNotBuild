@@ -2,6 +2,8 @@ import "./ProductCard.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Button from "./Button";
+
 const ProductCard = ({
   id,
   name,
@@ -31,18 +33,24 @@ const ProductCard = ({
       <div className="product-info">
         <h3>{name}</h3>
         <p>{info}</p>
-        <p className="price">{price}</p>
-        <div className="btn">
-          <button
-            className="btnPutIn"
-            style={{ background: isAdded ? "gray" : "" }}
-            onClick={handleAddToCart}
-          >
-            {isAdded ? "담김!" : "담기"}
-          </button>
-          <button className="btnBuy" onClick={() => nav("/payment")}>
-            구매
-          </button>
+        <p className="product-price">{price}</p>
+        <div className="product-btn">
+          <div className="btn-add">
+            <Button
+              text={isAdded ? "담김!" : "담기"}
+              backgroundColor={isAdded ? "gray" : "black"}
+              width={"60"}
+              onClick={handleAddToCart}
+            />
+          </div>
+          <div className="btn-buy">
+            <Button
+              text={"구매"}
+              width={"60"}
+              onClick={() => nav("/payment")}
+              backgroundColor={"yellow"}
+            />
+          </div>
         </div>
       </div>
     </div>
