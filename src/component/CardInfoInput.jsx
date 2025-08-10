@@ -47,7 +47,7 @@ const CardInfoInput = () => {
   };
 
   const onClickSubmit = () => {
-    console.log(input);
+    //console.log(input);
     onSubmit(input);
   };
 
@@ -131,19 +131,21 @@ const CardInfoInput = () => {
           <div>•</div>
         </div>
       </section>
-      {input.cardNum &&
-        input.date &&
-        name &&
-        input.cvc &&
-        input.pwd1 &&
-        input.pwd2 && (
-          <Button
-            text={"작성 완료"}
-            backgroundColor={"black"}
-            onClick={onClickSubmit}
-            width={"100"}
-          />
-        )}
+      <section className="btn-complete">
+        {input.cardNum &&
+          input.date &&
+          name &&
+          input.cvc &&
+          input.pwd1 &&
+          input.pwd2 && (
+            <Button
+              text={"작성 완료"}
+              backgroundColor={"black"}
+              onClick={onClickSubmit}
+              width={"100"}
+            />
+          )}
+      </section>
     </div>
   );
 };

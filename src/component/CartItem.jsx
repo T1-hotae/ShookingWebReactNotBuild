@@ -1,7 +1,11 @@
+import { useState } from "react";
 import "./CartItem.css";
 
 const CartItem = () => {
   const [itemImg, itemName, itemPrice] = ["img", "나이키", "12,000원"];
+
+  const [count, setCount] = useState(1);
+
   return (
     <section className="CartItem">
       <div className="item-img">
@@ -13,9 +17,16 @@ const CartItem = () => {
           <p className="item-price">{itemPrice}</p>
         </div>
         <div className="item-count">
-          <div className="item-min">-</div>
-          <div className="item-num">1</div>
-          <div className="item-add">+</div>
+          <button
+            className="item-min"
+            onClick={() => setCount(count !== 0 ? count - 1 : count)}
+          >
+            -
+          </button>
+          <div className="item-num">{count}</div>
+          <button className="item-add" onClick={() => setCount(count + 1)}>
+            +
+          </button>
         </div>
       </div>
     </section>

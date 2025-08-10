@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   padding: 20px 35px;
-  gap: 20px;
+  gap: 10px;
 }
 
 .CartItem .item-img {
@@ -36,7 +36,7 @@
   justify-content: center;
   align-items: center;
 
-  gap: 20px;
+  gap: 5px;
 }
 
 .CartItem .item-info div > p {
@@ -55,7 +55,9 @@
 
 .CartItem .item-count {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+
+  margin-top: 5px;
 
   justify-content: center;
   align-items: center;
@@ -63,7 +65,8 @@
   font-size: 24px;
 }
 
-.item-count .item-min {
+.item-count .item-min,
+.item-add {
   display: flex;
   cursor: pointer;
 
@@ -75,20 +78,7 @@
   align-items: center;
   justify-content: center;
   color: #999;
-}
-
-.item-count .item-add {
-  display: flex;
-  cursor: pointer;
-
-  background-color: #eee;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-
-  align-items: center;
-  justify-content: center;
-  color: #999;
+  border: none;
 }
 
 .item-count .item-num {
