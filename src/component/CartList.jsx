@@ -1,5 +1,6 @@
 import CartItem from "./CartItem";
 import Calculate from "./Calculate";
+import "./CartList.css";
 import useProduct from "../hooks/useProduct";
 import { useContext, useState } from "react";
 import { ProductStateContext } from "../App";
@@ -16,7 +17,7 @@ const CartList = () => {
   };
 
   return (
-    <>
+    <div className="CartList">
       {cartIds.map((cartId) => {
         const product = products.find((p) => p.id === cartId);
         if (!product) return null;
@@ -32,7 +33,7 @@ const CartList = () => {
         );
       })}
       <Calculate price={totalPrice} />
-    </>
+    </div>
   );
 };
 

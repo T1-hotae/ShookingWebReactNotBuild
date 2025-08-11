@@ -5,7 +5,9 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  margin: 0px 20px;
+  margin: 10px 15px;
+
+  width: 220px;
 }
 
 /* 카드 내부 위치 CSS 스타일 */
