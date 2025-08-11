@@ -21,14 +21,14 @@ const CartList = () => {
         const product = products.find((p) => p.id === cartId);
         if (!product) return null;
         return (
-          <>
+          <div key={cartId}>
             <CartItem
               key={cartId}
               product={product}
               onPriceChange={(price) => onPriceChange(cartId, price)}
             />
             <hr />
-          </>
+          </div>
         );
       })}
       <Calculate price={totalPrice} />

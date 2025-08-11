@@ -5,16 +5,7 @@ import { ProductContext } from "../App";
 
 import Button from "./Button";
 
-const ProductCard = ({
-  id,
-  name,
-  info,
-  price,
-  img,
-  badgeCount,
-  setBadgeCount,
-  isAdd,
-}) => {
+const ProductCard = ({ id, name, info, price, img, isAdd }) => {
   const { onCart } = useContext(ProductContext);
   const [inCart, setInCart] = useState(isAdd);
 
@@ -26,7 +17,6 @@ const ProductCard = ({
     setInCart(true);
     onCart(id);
     alert(`${name}이(가) 카트에 담겼습니다.`);
-    setBadgeCount(badgeCount + 1);
   };
 
   const nav = useNavigate();

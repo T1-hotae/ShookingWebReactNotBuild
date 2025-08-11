@@ -1,22 +1,19 @@
 import Header from "../component/Header";
 import Info from "../component/Info";
 import ProductList from "../component/ProductList";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ProductStateContext } from "../App";
 import useProduct from "../hooks/useProduct";
 
 const Home = () => {
-  const [badgeCount, setBadgeCount] = useState(0);
   const products = useProduct();
+  const { cartIds } = useContext(ProductStateContext);
 
   return (
     <>
-      <Header badgeCount={badgeCount} />
+      <Header badgeCount={cartIds.length} />
       <Info title={"신발 상품 목록"} count={products.length} />
-      <ProductList
-        products={products}
-        badgeCount={badgeCount}
-        setBadgeCount={setBadgeCount}
-      />
+      <ProductList products={products} />
     </>
   );
 };
