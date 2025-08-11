@@ -8,8 +8,7 @@
 .CartItem .item-img {
   width: 150px;
   height: 150px;
-  object-fit: cover; /* 비율 유지하며 꽉 채우고 잘림 허용 */
-  display: block; /* 인라인 여백 제거 */
+  display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -20,7 +19,7 @@
 }
 
 .CartItem .item-img > img {
-  width: 150px;
+  width: 200px;
   height: auto;
 
   margin: 0 auto; /* 필요 시 중앙 정렬 */

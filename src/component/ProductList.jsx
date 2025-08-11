@@ -5,7 +5,6 @@ import { useContext } from "react";
 
 const ProductList = ({ products, badgeCount, setBadgeCount }) => {
   const { cartIds } = useContext(ProductStateContext);
-  console.log(cartIds);
 
   return (
     <div className="product-list">
