@@ -1,12 +1,19 @@
 import CartItem from "./CartItem";
 import Calculate from "./Calculate";
 import useProduct from "../hooks/useProduct";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductStateContext } from "../App";
 
 const CartList = () => {
   const { cartIds } = useContext(ProductStateContext);
   const products = useProduct();
+
+  const [totalPrice, setTotalPrice] = useState(0);
+  const onPriceChange = (cartId, itemTotal) => {
+    setTotalPrice((prevTotal) => {
+      return prevTotal + itemTotal;
+    });
+  };
 
   return (
     <>
@@ -15,12 +22,16 @@ const CartList = () => {
         if (!product) return null;
         return (
           <>
-            <CartItem key={cartId} product={product} />
+            <CartItem
+              key={cartId}
+              product={product}
+              onPriceChange={(price) => onPriceChange(cartId, price)}
+            />
             <hr />
           </>
         );
       })}
-      <Calculate />
+      <Calculate price={totalPrice} />
     </>
   );
 };

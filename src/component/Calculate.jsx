@@ -1,7 +1,6 @@
 import "./Calculate.css";
 
-const Calculate = () => {
-  const price = "110000";
+const Calculate = ({ price }) => {
   const shippingFee = price < 100000 ? 3000 : 0;
   const total = Number(price) + shippingFee;
 

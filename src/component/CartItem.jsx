@@ -1,8 +1,7 @@
-import { useState, useContext } from "react";
-import { ProductContext } from "../App";
+import { useEffect, useState } from "react";
 import "./CartItem.css";
 
-const CartItem = ({ product }) => {
+const CartItem = ({ product, onPriceChange }) => {
   const [itemImg, itemName, itemPrice] = [
     product.img,
     product.name,
@@ -10,31 +9,12 @@ const CartItem = ({ product }) => {
   ];
   const priceFormatted = itemPrice.replace(",", "").replace("원", "");
 
-  const [totalPrice, setTotalPrice] = useState({
-    count: 1,
-    price: priceFormatted,
-  });
+  const [count, setCount] = useState(1);
 
-  const priceItem = Number(priceFormatted * totalPrice.count);
-  const { onAddPrice } = useContext(ProductContext);
-
-  const onClickUpCount = () => {
-    setTotalPrice({
-      ...totalPrice,
-      count: totalPrice.count + 1,
-    });
-    onAddPrice(totalPrice.count, totalPrice.price);
-  };
-
-  const onClickDownCount = () => {
-    if (totalPrice.count > 1) {
-      setTotalPrice({
-        ...totalPrice,
-        count: totalPrice.count - 1,
-      });
-    }
-    onAddPrice(totalPrice);
-  };
+  const priceItem = Number(priceFormatted * count);
+  useEffect(() => {
+    onPriceChange(priceItem);
+  }, [priceItem]);
 
   return (
     <section className="CartItem">
@@ -47,11 +27,14 @@ const CartItem = ({ product }) => {
           <p className="item-price">{priceItem.toLocaleString()}</p>
         </div>
         <div className="item-count">
-          <button className="item-min" onClick={onClickDownCount}>
+          <button
+            className="item-min"
+            onClick={() => setCount((c) => Math.max(1, c - 1))}
+          >
             -
           </button>
-          <div className="item-num">{totalPrice.count}</div>
-          <button className="item-add" onClick={onClickUpCount}>
+          <div className="item-num">{count}</div>
+          <button className="item-add" onClick={() => setCount((c) => c + 1)}>
             +
           </button>
         </div>
