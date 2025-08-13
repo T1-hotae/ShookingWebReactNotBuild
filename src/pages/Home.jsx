@@ -7,11 +7,11 @@ import useProduct from "../hooks/useProduct";
 
 const Home = () => {
   const products = useProduct();
-  const { cartIds } = useContext(ProductStateContext);
+  const { cartInfos } = useContext(ProductStateContext);
 
   return (
     <>
-      <Header badgeCount={cartIds.length} />
+      <Header badgeCount={cartInfos.length} />
       <Info title={"신발 상품 목록"} count={products.length} />
       <ProductList products={products} />
     </>

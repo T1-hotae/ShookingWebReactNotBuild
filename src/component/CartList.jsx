@@ -2,37 +2,28 @@ import CartItem from "./CartItem";
 import Calculate from "./Calculate";
 import "./CartList.css";
 import useProduct from "../hooks/useProduct";
-import { useContext, useState } from "react";
-import { ProductStateContext } from "../App";
 
-const CartList = () => {
-  const { cartIds } = useContext(ProductStateContext);
+const CartList = ({ cartInfos }) => {
   const products = useProduct();
 
-  const [totalPrice, setTotalPrice] = useState(0);
-  const onPriceChange = (cartId, itemTotal) => {
-    setTotalPrice((prevTotal) => {
-      return prevTotal + itemTotal;
-    });
-  };
+  const price = cartInfos
+    .map((cartInfo) => cartInfo.price)
+    .reduce((a, b) => a + b, 0);
+  console.log(price);
 
   return (
     <div className="CartList">
-      {cartIds.map((cartId) => {
-        const product = products.find((p) => p.id === cartId);
+      {cartInfos.map((cartInfo) => {
+        const product = products.find((p) => p.id === cartInfo.id);
         if (!product) return null;
         return (
-          <div key={cartId}>
-            <CartItem
-              key={cartId}
-              product={product}
-              onPriceChange={(price) => onPriceChange(cartId, price)}
-            />
+          <div key={cartInfo.id}>
+            <CartItem key={cartInfo.id} cartItem={product} />
             <hr />
           </div>
         );
       })}
-      <Calculate price={totalPrice} />
+      <Calculate price={price} />
     </div>
   );
 };

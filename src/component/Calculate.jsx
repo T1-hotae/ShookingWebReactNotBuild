@@ -3,7 +3,6 @@ import "./Calculate.css";
 const Calculate = ({ price }) => {
   const shippingFee = price < 100000 ? 3000 : 0;
   const total = Number(price) + shippingFee;
-
   return (
     <section className="Calculate">
       <div className="ProductPrice">

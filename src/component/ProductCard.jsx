@@ -1,21 +1,23 @@
 import "./ProductCard.css";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ProductContext } from "../App";
+import { ProductContext, ProductStateContext } from "../App";
 
 import Button from "./Button";
 
-const ProductCard = ({ id, name, info, price, img, isAdd }) => {
+const ProductCard = ({ id, name, info, price, img }) => {
+  const { cartInfos } = useContext(ProductStateContext);
   const { onCart } = useContext(ProductContext);
-  const [inCart, setInCart] = useState(isAdd);
+
+  const isAdd = cartInfos.some((item) => item.id === id);
+  const itemPrice = Number(price.replace(",", "").replace("원", ""));
 
   const handleAddToCart = () => {
     if (isAdd) {
       alert("해당 상품은 이미 담겨있습니다.");
       return;
     }
-    setInCart(true);
-    onCart(id);
+    onCart(id, itemPrice);
     alert(`${name}이(가) 카트에 담겼습니다.`);
   };
 
@@ -31,8 +33,8 @@ const ProductCard = ({ id, name, info, price, img, isAdd }) => {
         <div className="product-btn">
           <div className="btn-add">
             <Button
-              text={!inCart ? "담기" : "담김!"}
-              backgroundColor={!inCart ? "black" : "gray"}
+              text={!isAdd ? "담기" : "담김!"}
+              backgroundColor={!isAdd ? "black" : "gray"}
               width={"60"}
               onClick={handleAddToCart}
             />

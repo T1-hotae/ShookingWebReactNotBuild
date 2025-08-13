@@ -6,13 +6,16 @@ import { useContext } from "react";
 import { ProductStateContext } from "../App";
 
 const Cart = () => {
-  const { cartIds } = useContext(ProductStateContext);
+  const { cartInfos } = useContext(ProductStateContext);
 
   return (
     <>
       <Header backBtn={true} />
-      <Info title={"장바구니"} count={cartIds.length ? cartIds.length : 0} />
-      <CartList />
+      <Info
+        title={"장바구니"}
+        count={cartInfos.length ? cartInfos.length : 0}
+      />
+      <CartList cartInfos={cartInfos} />
       <Button text={"결제하기"} backgroundColor={"yellow"} width={"540"} />
     </>
   );

@@ -27,17 +27,26 @@ function App() {
     setData((prev) => [...prev, newCard]);
   };
 
-  const [cartIds, setCartIds] = useState([]);
+  const [cartInfos, setCartInfos] = useState([]);
 
-  const onCart = (id) => {
-    const newCartId = id;
+  const onCart = (id, price = 0) => {
+    setCartInfos((prevItems) => {
+      const exists = prevItems.some((item) => item.id === id);
+      if (exists) {
+        // 이미 있으면 price 업데이트
+        return prevItems.map((item) =>
+          item.id === id ? { ...item, price: price } : item
+        );
+      }
 
-    setCartIds((cartId) => [...cartId, newCartId]);
+      // 없으면 새 아이템 추가 (count 기본 1)
+      return [...prevItems, { id, price }];
+    });
   };
 
   return (
     <>
-      <ProductStateContext.Provider value={{ data, cartIds }}>
+      <ProductStateContext.Provider value={{ data, cartInfos }}>
         <ProductContext.Provider value={{ onCreate, onCart }}>
           <Routes>
             <Route path="/" element={<Home />} />
