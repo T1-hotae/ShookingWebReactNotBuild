@@ -8,7 +8,7 @@ import Button from "./Button";
 const CardInfoInput = () => {
   const [input, setInput] = useState({
     cardNum: "",
-    date: "",
+    expiry: "",
     name: "",
     cvc: "",
     pwd1: "",
@@ -36,7 +36,7 @@ const CardInfoInput = () => {
   const onSubmit = (input) => {
     onCreate(
       input.cardNum,
-      input.date,
+      input.expiry,
       (input.name = name),
       input.cvc,
       input.pwd1,
@@ -54,7 +54,7 @@ const CardInfoInput = () => {
   return (
     <div className="CardInfoInput">
       <section className="CardList">
-        <Card cardNum={input.cardNum} name={name} date={input.date} />
+        <Card cardNum={input.cardNum} name={name} expiry={input.expiry} />
       </section>
       <section className="CardNum">
         <p>카드 번호</p>
@@ -70,10 +70,10 @@ const CardInfoInput = () => {
       <section>
         <p>만료일</p>
         <input
-          name="date"
-          value={input.date}
+          name="expiry"
+          value={input.expiry}
           onChange={onChangeInput}
-          className="CardDateInput"
+          className="CardExpiryInput"
           type="text"
           placeholder="MM / YY"
           maxLength={5}
@@ -133,7 +133,7 @@ const CardInfoInput = () => {
       </section>
       <section className="btn-complete">
         {input.cardNum &&
-          input.date &&
+          input.expiry &&
           name &&
           input.cvc &&
           input.pwd1 &&

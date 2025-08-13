@@ -1,6 +1,6 @@
 import "./Card.css";
 
-const Card = ({ id, cardNum, name, date }) => {
+const Card = ({ id, cardNum, name, expiry }) => {
   const cardNumString = () => {
     return String(cardNum).replace(/-/g, " ");
   };
@@ -22,7 +22,7 @@ const Card = ({ id, cardNum, name, date }) => {
         <div className="CardNumber">{cardNumber}</div>
         <div className="CardBottom">
           <div className="name">{cardName === "" ? "NAME" : cardName}</div>
-          <div className="date">{date === "" ? "MM/YY" : date}</div>
+          <div className="expiry">{expiry === "" ? "MM/YY" : expiry}</div>
         </div>
       </div>
     </div>

@@ -14,11 +14,11 @@ function App() {
   const [data, setData] = useState([]);
   const idRef = useRef(0);
 
-  const onCreate = (cardNum, date, name, cvc, pwd1, pwd2) => {
+  const onCreate = (cardNum, expiry, name, cvc, pwd1, pwd2) => {
     const newCard = {
       id: idRef.current++,
       cardNum,
-      date,
+      expiry,
       name,
       cvc,
       pwd1,

@@ -3,12 +3,15 @@ import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import Button from "./Button";
 
-const HoldCard = ({ cardData }) => {
+const HoldCard = ({ cardData = [] }) => {
+  //기본값 추가
   const nav = useNavigate();
 
   return (
     <section className="HoldCard">
-      {cardData.length === 0 ? <div>새로운 카드를 등록해주세요</div> : null}
+      {!cardData || cardData.length === 0 ? (
+        <div>새로운 카드를 등록해주세요</div>
+      ) : null}
 
       <div>
         <div className="list_wrapper">
