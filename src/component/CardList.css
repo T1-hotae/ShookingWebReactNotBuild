@@ -1,13 +1,12 @@
 .CardList {
   text-align: center;
-  margin: 20px 0px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px 0px;
 }
 
-.CardList .CardAdd {
+.CardList .cardAdd {
   background-color: #ddd;
   font-size: 36px;
   cursor: pointer;

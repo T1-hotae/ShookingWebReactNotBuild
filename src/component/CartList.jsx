@@ -1,5 +1,5 @@
 import CartItem from "./CartItem";
-import Calculate from "./Calculate";
+import CartCalc from "./CartCalc";
 import "./CartList.css";
 import useProduct from "../hooks/useProduct";
 
@@ -22,7 +22,7 @@ const CartList = ({ cartInfos }) => {
           </div>
         );
       })}
-      <Calculate price={price} />
+      <CartCalc price={price} />
     </div>
   );
 };

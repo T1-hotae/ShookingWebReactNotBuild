@@ -16,34 +16,33 @@
   box-sizing: border-box;
 }
 
-.Card .GoldChip {
+.Card .goldChip {
   position: absolute;
   left: 20px;
-  top: 40%;
+  top: 37%;
   width: 45px;
   height: 30px;
   border-radius: 5px;
   background-color: #d2c725;
 }
 
-.Card .CardInputInfo {
+.Card .cardInputInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Card .CardInputInfo .CardNumber {
+.Card .cardInputInfo .cardNumber {
   position: absolute;
   font-size: 18px;
-  bottom: 35px;
+  bottom: 38px;
   letter-spacing: 2px;
 }
 
-.Card .CardInputInfo .CardBottom {
+.Card .cardInputInfo .cardBottom {
   position: absolute;
   display: flex;
   justify-content: space-between;
   width: 85%;
   bottom: 20px;
-  font-size: 14px;
 }

@@ -1,10 +1,12 @@
 import "./App.css";
-import { useState, createContext, useRef } from "react";
+import { useState, createContext, useRef, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Payment from "./pages/Payment";
 import CardInfo from "./pages/CardInfo";
 import Cart from "./pages/Cart";
+import Amount from "./pages/Amount";
+import useProduct from "./hooks/useProduct";
 
 export const ProductStateContext = createContext();
 export const ProductContext = createContext();
@@ -13,6 +15,7 @@ function App() {
   //카드 정보들
   const [data, setData] = useState([]);
   const idRef = useRef(0);
+
   const onCreate = (cardNum, expiry, name, cvc, pwd1, pwd2) => {
     const newCard = {
       id: idRef.current++,
@@ -41,6 +44,14 @@ function App() {
     });
   };
 
+  //Product 로딩
+  const [loading, setLoading] = useState(true);
+  const products = useProduct();
+  useEffect(() => {
+    if (products) setLoading(false);
+  }, []);
+  if (loading) return <div>데이터 로딩 중입니다.</div>;
+
   return (
     <>
       <ProductStateContext.Provider value={{ data, cartInfos }}>
@@ -50,6 +61,7 @@ function App() {
             <Route path="/payment" element={<Payment />} />
             <Route path="/cardinfo" element={<CardInfo />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/amount" element={<Amount />} />
           </Routes>
         </ProductContext.Provider>
       </ProductStateContext.Provider>

@@ -4,9 +4,19 @@ import CartList from "../component/CartList";
 import Button from "../component/Button";
 import { useContext } from "react";
 import { ProductStateContext } from "../App";
+import { replace, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cartInfos } = useContext(ProductStateContext);
+  const nav = useNavigate();
+
+  const onAmountClick = () => {
+    if (cartInfos) {
+      return nav("/amount", { replace: true });
+    } else {
+      alert("상품을 담아주세요");
+    }
+  };
 
   return (
     <>
@@ -16,7 +26,12 @@ const Cart = () => {
         count={cartInfos.length ? cartInfos.length : 0}
       />
       <CartList cartInfos={cartInfos} />
-      <Button text={"결제하기"} backgroundColor={"yellow"} width={"540"} />
+      <Button
+        text={"결제하기"}
+        backgroundColor={"yellow"}
+        width={"540"}
+        onClick={onAmountClick}
+      />
     </>
   );
 };

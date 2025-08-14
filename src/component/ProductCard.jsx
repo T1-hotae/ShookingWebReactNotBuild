@@ -1,11 +1,13 @@
 import "./ProductCard.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProductContext, ProductStateContext } from "../App";
 
 import Button from "./Button";
 
 const ProductCard = ({ id, name, info, price, img }) => {
+  const nav = useNavigate();
+
   const { cartInfos } = useContext(ProductStateContext);
   const { onCart } = useContext(ProductContext);
 
@@ -20,8 +22,6 @@ const ProductCard = ({ id, name, info, price, img }) => {
     onCart(id, itemPrice);
     alert(`${name}이(가) 카트에 담겼습니다.`);
   };
-
-  const nav = useNavigate();
 
   return (
     <div className="ProductCard">

@@ -1,11 +1,14 @@
+import "./CardForm.css";
+import Card from "./Card";
+import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../App";
-import Card from "./Card";
-import "./CardForm.css";
 import { useState, useContext } from "react";
-import Button from "./Button";
 
 const CardForm = () => {
+  const nav = useNavigate();
+
+  //카드 정보 받아오기
   const [input, setInput] = useState({
     cardNum: "",
     expiry: "",
@@ -20,10 +23,10 @@ const CardForm = () => {
     setInput((prev) => ({ ...prev, [name]: value }));
   };
 
+  //카드 정보 전송하기
   const { onCreate } = useContext(ProductContext);
-  const nav = useNavigate();
 
-  const onSubmit = (input) => {
+  const onClickSubmit = () => {
     onCreate(
       input.cardNum,
       input.expiry,
@@ -36,43 +39,46 @@ const CardForm = () => {
     nav("/payment", { replace: true });
   };
 
-  const onClickSubmit = () => {
-    //console.log(input);
-    onSubmit(input);
-  };
-
+  //input 객체 요소들이 전부 있을 때,
   const isComplete = Object.values(input).every(Boolean);
 
   return (
     <div className="CardForm">
-      <section className="CardList">
+      {/* 화면에 표시될 카드 모양 */}
+      <section className="CardModule">
         <Card cardNum={input.cardNum} name={input.name} expiry={input.expiry} />
       </section>
-      <section className="CardNum">
+
+      {/* 카드 번호 */}
+      <section>
         <p>카드 번호</p>
         <input
           name="cardNum"
           value={input.cardNum}
           onChange={onChangeInput}
-          className="CardNumInput"
+          className="card-numberInput"
           type="text"
           maxLength={19}
         />
       </section>
+
+      {/* 만료일 */}
       <section>
         <p>만료일</p>
         <input
           name="expiry"
           value={input.expiry}
           onChange={onChangeInput}
-          className="CardExpiryInput"
+          className="card-expiryInput"
           type="text"
           placeholder="MM / YY"
           maxLength={5}
         />
       </section>
+
+      {/* 카드 소유자 이름 */}
       <section>
-        <div className="CardNameInfo">
+        <div className="card-ownerInfo">
           <p>카드 소유자 이름</p>
           <p>{input.name.length}/30</p>
         </div>
@@ -82,47 +88,56 @@ const CardForm = () => {
           value={input.name}
           maxLength={30}
           onChange={onChangeInput}
-          className="CardNameInput"
+          className="card-ownerInput"
           placeholder="카드에 표시된 이름과 동일하게 입력하세요."
         />
       </section>
+
+      {/* 보안 코드 */}
       <section>
         <p>보안코드(CVC/CVV)</p>
-        <div className="CardCode">
+        <div className="card-code">
           <input
             name="cvc"
             value={input.cvc}
             onChange={onChangeInput}
-            className="CardCodeNum"
+            className="card-codeNum"
             type="text"
             maxLength={4}
+            inputMode="numeric"
           />
           <div className="material-icons">help</div>
         </div>
       </section>
+
+      {/* 비밀번호 */}
       <section>
         <p>카드 비밀번호</p>
-        <div className="CardPwd">
+        <div className="card-pwd">
           <input
             name="pwd1"
             value={input.pwd1}
             onChange={onChangeInput}
-            className="CardPwd1"
+            className="card-pwd1"
             type="text"
             maxLength={1}
+            inputMode="numeric"
           />
           <input
             name="pwd2"
             value={input.pwd2}
             onChange={onChangeInput}
-            className="CardPwd2"
+            className="card-pwd2"
             type="text"
             maxLength={1}
+            inputMode="numeric"
           />
           <div>•</div>
           <div>•</div>
         </div>
       </section>
+
+      {/* 완료 버튼 */}
       <section className="btn-complete">
         {isComplete && (
           <Button

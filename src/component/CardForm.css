@@ -1,3 +1,9 @@
+p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
 .CardForm {
   display: flex;
   flex-direction: column;
@@ -5,11 +11,17 @@
   padding: 5px 35px;
 }
 
-.CardForm .CardList {
+.CardForm .card-form {
   width: 100%;
   display: flex;
   align-items: center; /* 세로축 가운데 정렬 */
   justify-content: center; /* 가로축 가운데 정렬 */
+}
+
+/* 섹션 설정 */
+.CardForm section {
+  display: flex;
+  flex-direction: column;
 }
 
 .CardForm section input {
@@ -18,73 +30,61 @@
   background-color: #eee;
   padding: 8px 8px;
   margin: 0;
-  font-size: 24px;
+  font-size: 18px;
 }
 
-.CardForm section > p {
-  font-size: 14px;
-  margin-bottom: 8px;
-  color: #555;
-}
-
-.CardForm section {
-  display: flex;
-  flex-direction: column;
-}
-
-.CardForm .CardNum {
+/* 카드 번호 */
+.CardForm .card-numberInput {
   width: 100%;
   flex: 1;
-}
-.CardForm .CardNum .CardNumInput {
   text-align: center;
 }
-.CardForm .CardNameInfo {
-  display: flex;
-  justify-content: space-between;
-}
-.CardForm .CardExpiryInput {
+
+/* 만료일 */
+.CardForm .card-expiryInput {
   width: 40%;
   text-align: center;
 }
 
-.CardForm .CardCodeNum {
-  width: 30%;
-}
-
-.CardForm .CardPwd {
+/* 카드 소유자 이름 */
+.CardForm .card-ownerInfo {
   display: flex;
-  gap: 10px;
-  text-align: center;
+  justify-content: space-between;
 }
 
-.CardForm .CardPwd1 {
-  width: 10%;
-  text-align: center;
-  font-size: 24px;
-}
-
-.CardForm .CardPwd2 {
-  width: 10%;
-  text-align: center;
-  font-size: 24px;
-}
-
-.CardForm .CardPwd > div {
-  font-size: 24px;
-  margin-left: 20px;
-}
-
-.CardForm .CardCode {
+/* 보안 코드 */
+.CardForm .card-code {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.CardForm .CardCode .material-icons {
+.CardForm .card-codeNum {
+  width: 30%;
+}
+
+.CardForm .card-code .material-icons {
   font-size: 36px; /* 아이콘 크기 (기본은 24px) */
   cursor: pointer;
   color: #ddd; /* 아이콘 색상 (선택) */
+}
+
+/* 카드 비밀번호 */
+.CardForm .card-pwd {
+  display: flex;
+  gap: 10px;
+}
+
+.card-pwd1,
+.card-pwd2 {
+  width: 10%;
+  text-align: center;
+  font-size: 24px;
+}
+
+.CardForm .card-pwd > div {
+  font-size: 24px;
+  margin-left: 20px;
 }
 
 .btn-complete {
