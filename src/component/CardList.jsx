@@ -1,14 +1,14 @@
-import "./HoldCard.css";
+import "./CardList.css";
 import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import Button from "./Button";
 
-const HoldCard = ({ cardData = [] }) => {
+const CardList = ({ cardData = [] }) => {
   //기본값 추가
   const nav = useNavigate();
 
   return (
-    <section className="HoldCard">
+    <section className="CardList">
       {!cardData || cardData.length === 0 ? (
         <div>새로운 카드를 등록해주세요</div>
       ) : null}
@@ -31,4 +31,4 @@ const HoldCard = ({ cardData = [] }) => {
   );
 };
 
-export default HoldCard;
+export default CardList;

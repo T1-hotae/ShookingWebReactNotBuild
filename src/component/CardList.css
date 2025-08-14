@@ -1,4 +1,4 @@
-.HoldCard {
+.CardList {
   text-align: center;
   margin: 20px 0px;
 
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.HoldCard .CardAdd {
+.CardList .CardAdd {
   background-color: #ddd;
   font-size: 36px;
   cursor: pointer;
@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.HoldCard .card-item {
+.CardList .card-item {
   margin-bottom: 50px;
 }
 

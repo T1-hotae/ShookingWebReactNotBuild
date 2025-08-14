@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState, createContext, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Payment from "./pages/Payment";
 import CardInfo from "./pages/CardInfo";
@@ -11,9 +10,9 @@ export const ProductStateContext = createContext();
 export const ProductContext = createContext();
 
 function App() {
+  //카드 정보들
   const [data, setData] = useState([]);
   const idRef = useRef(0);
-
   const onCreate = (cardNum, expiry, name, cvc, pwd1, pwd2) => {
     const newCard = {
       id: idRef.current++,
@@ -27,8 +26,8 @@ function App() {
     setData((prev) => [...prev, newCard]);
   };
 
+  //카트에 담긴 아이템들
   const [cartInfos, setCartInfos] = useState([]);
-
   const onCart = (id, price = 0) => {
     setCartInfos((prevItems) => {
       const exists = prevItems.some((item) => item.id === id);
@@ -38,7 +37,6 @@ function App() {
           item.id === id ? { ...item, price: price } : item
         );
       }
-      // 없으면 새 아이템 추가 (count 기본 1)
       return [...prevItems, { id, price }];
     });
   };

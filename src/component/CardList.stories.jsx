@@ -1,9 +1,9 @@
-import HoldCard from "./HoldCard";
+import CardList from "./CardList";
 import { MemoryRouter } from "react-router-dom";
 
 export default {
-  title: "Example/HoldCard",
-  component: HoldCard,
+  title: "Example/CardList",
+  component: CardList,
   argTypes: {
     cardData: { control: "object" },
   },
@@ -16,7 +16,7 @@ export default {
   ],
 };
 
-const Template = (args) => <HoldCard {...args} />;
+const Template = (args) => <CardList {...args} />;
 
 export const EmptyCardList = Template.bind({});
 EmptyCardList.args = {

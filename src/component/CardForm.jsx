@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../App";
 import Card from "./Card";
-import "./CardInfoInput.css";
+import "./CardForm.css";
 import { useState, useContext } from "react";
 import Button from "./Button";
 
-const CardInfoInput = () => {
+const CardForm = () => {
   const [input, setInput] = useState({
     cardNum: "",
     expiry: "",
@@ -44,7 +44,7 @@ const CardInfoInput = () => {
   const isComplete = Object.values(input).every(Boolean);
 
   return (
-    <div className="CardInfoInput">
+    <div className="CardForm">
       <section className="CardList">
         <Card cardNum={input.cardNum} name={input.name} expiry={input.expiry} />
       </section>
@@ -137,4 +137,4 @@ const CardInfoInput = () => {
   );
 };
 
-export default CardInfoInput;
+export default CardForm;

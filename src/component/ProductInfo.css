@@ -1,0 +1,12 @@
+.ProductInfo {
+  padding: 16px 16px 0; /* 상단 여백 조정 */
+}
+
+.ProductInfo h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.ProductInfo p {
+  margin-top: 4px;
+}

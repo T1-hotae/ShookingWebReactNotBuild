@@ -1,6 +1,6 @@
 import Header from "../component/Header";
-import Info from "../component/Info";
 import ProductList from "../component/ProductList";
+import ProductInfo from "../component/ProductInfo";
 import { useContext } from "react";
 import { ProductStateContext } from "../App";
 import useProduct from "../hooks/useProduct";
@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <Header badgeCount={cartInfos.length} />
-      <Info title={"신발 상품 목록"} count={products.length} />
+      <ProductInfo title={"신발 상품 목록"} count={products.length} />
       <ProductList products={products} />
     </>
   );

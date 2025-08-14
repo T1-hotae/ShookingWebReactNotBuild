@@ -1,5 +1,4 @@
 import "./Button.css";
-
 /**
  * background는 "색깔", width는 100%이면, 100, 다른 것은 다 px로 인식 */
 const Button = ({ text, backgroundColor, onClick, width }) => {

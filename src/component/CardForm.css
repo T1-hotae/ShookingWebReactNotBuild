@@ -1,18 +1,18 @@
-.CardInfoInput {
+.CardForm {
   display: flex;
   flex-direction: column;
 
   padding: 5px 35px;
 }
 
-.CardInfoInput .CardList {
+.CardForm .CardList {
   width: 100%;
   display: flex;
   align-items: center; /* 세로축 가운데 정렬 */
   justify-content: center; /* 가로축 가운데 정렬 */
 }
 
-.CardInfoInput section input {
+.CardForm section input {
   border: none;
   border-radius: 5px;
   background-color: #eee;
@@ -21,67 +21,67 @@
   font-size: 24px;
 }
 
-.CardInfoInput section > p {
+.CardForm section > p {
   font-size: 14px;
   margin-bottom: 8px;
   color: #555;
 }
 
-.CardInfoInput section {
+.CardForm section {
   display: flex;
   flex-direction: column;
 }
 
-.CardInfoInput .CardNum {
+.CardForm .CardNum {
   width: 100%;
   flex: 1;
 }
-.CardInfoInput .CardNum .CardNumInput {
+.CardForm .CardNum .CardNumInput {
   text-align: center;
 }
-.CardInfoInput .CardNameInfo {
+.CardForm .CardNameInfo {
   display: flex;
   justify-content: space-between;
 }
-.CardInfoInput .CardExpiryInput {
+.CardForm .CardExpiryInput {
   width: 40%;
   text-align: center;
 }
 
-.CardInfoInput .CardCodeNum {
+.CardForm .CardCodeNum {
   width: 30%;
 }
 
-.CardInfoInput .CardPwd {
+.CardForm .CardPwd {
   display: flex;
   gap: 10px;
   text-align: center;
 }
 
-.CardInfoInput .CardPwd1 {
+.CardForm .CardPwd1 {
   width: 10%;
   text-align: center;
   font-size: 24px;
 }
 
-.CardInfoInput .CardPwd2 {
+.CardForm .CardPwd2 {
   width: 10%;
   text-align: center;
   font-size: 24px;
 }
 
-.CardInfoInput .CardPwd > div {
+.CardForm .CardPwd > div {
   font-size: 24px;
   margin-left: 20px;
 }
 
-.CardInfoInput .CardCode {
+.CardForm .CardCode {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.CardInfoInput .CardCode .material-icons {
+.CardForm .CardCode .material-icons {
   font-size: 36px; /* 아이콘 크기 (기본은 24px) */
   cursor: pointer;
   color: #ddd; /* 아이콘 색상 (선택) */

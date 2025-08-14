@@ -1,5 +1,5 @@
 import Header from "../component/Header";
-import Info from "../component/Info";
+import ProductInfo from "../component/ProductInfo";
 import CartList from "../component/CartList";
 import Button from "../component/Button";
 import { useContext } from "react";
@@ -11,7 +11,7 @@ const Cart = () => {
   return (
     <>
       <Header backBtn={true} />
-      <Info
+      <ProductInfo
         title={"장바구니"}
         count={cartInfos.length ? cartInfos.length : 0}
       />
