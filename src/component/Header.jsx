@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const Header = ({ badgeCount, backBtn }) => {
   const nav = useNavigate();
-
   return (
     <header className="header">
       <div className="logo"></div>

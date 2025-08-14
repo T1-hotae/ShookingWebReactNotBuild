@@ -9,7 +9,6 @@ const CartList = ({ cartInfos }) => {
   const price = cartInfos
     .map((cartInfo) => cartInfo.price)
     .reduce((a, b) => a + b, 0);
-  console.log(price);
 
   return (
     <div className="CartList">

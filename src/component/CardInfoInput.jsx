@@ -17,17 +17,7 @@ const CardInfoInput = () => {
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
-    setInput({
-      ...input,
-      [name]: value,
-    });
-  };
-  const [text, setText] = useState(0);
-  const [name, setName] = useState("");
-
-  const onChangeName = (e) => {
-    setName(e.target.value);
-    setText(e.target.value);
+    setInput((prev) => ({ ...prev, [name]: value }));
   };
 
   const { onCreate } = useContext(ProductContext);
@@ -37,7 +27,7 @@ const CardInfoInput = () => {
     onCreate(
       input.cardNum,
       input.expiry,
-      (input.name = name),
+      input.name,
       input.cvc,
       input.pwd1,
       input.pwd2
@@ -51,10 +41,12 @@ const CardInfoInput = () => {
     onSubmit(input);
   };
 
+  const isComplete = Object.values(input).every(Boolean);
+
   return (
     <div className="CardInfoInput">
       <section className="CardList">
-        <Card cardNum={input.cardNum} name={name} expiry={input.expiry} />
+        <Card cardNum={input.cardNum} name={input.name} expiry={input.expiry} />
       </section>
       <section className="CardNum">
         <p>카드 번호</p>
@@ -82,14 +74,14 @@ const CardInfoInput = () => {
       <section>
         <div className="CardNameInfo">
           <p>카드 소유자 이름</p>
-          <p>{text.length < 1 ? 0 : text.length}/30</p>
+          <p>{input.name.length}/30</p>
         </div>
         <input
           name="name"
           type="text"
-          value={name}
+          value={input.name}
           maxLength={30}
-          onChange={onChangeName}
+          onChange={onChangeInput}
           className="CardNameInput"
           placeholder="카드에 표시된 이름과 동일하게 입력하세요."
         />
@@ -132,19 +124,14 @@ const CardInfoInput = () => {
         </div>
       </section>
       <section className="btn-complete">
-        {input.cardNum &&
-          input.expiry &&
-          name &&
-          input.cvc &&
-          input.pwd1 &&
-          input.pwd2 && (
-            <Button
-              text={"작성 완료"}
-              backgroundColor={"black"}
-              onClick={onClickSubmit}
-              width={"100"}
-            />
-          )}
+        {isComplete && (
+          <Button
+            text={"작성 완료"}
+            backgroundColor={"black"}
+            onClick={onClickSubmit}
+            width={"100"}
+          />
+        )}
       </section>
     </div>
   );

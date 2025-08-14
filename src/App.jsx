@@ -38,7 +38,6 @@ function App() {
           item.id === id ? { ...item, price: price } : item
         );
       }
-
       // 없으면 새 아이템 추가 (count 기본 1)
       return [...prevItems, { id, price }];
     });

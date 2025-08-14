@@ -22,17 +22,6 @@ const CartItem = ({ cartItem }) => {
   const priceFormatted = cartItem.price.replace(",", "").replace("원", "");
   const priceItem = Number(priceFormatted * state.count);
 
-  const onPlus = () => {
-    dispatch({
-      type: "increase",
-    });
-  };
-
-  const onSub = () => {
-    dispatch({
-      type: "decrease",
-    });
-  };
   useEffect(() => {
     onCart(cartItem.id, priceItem);
   }, [state]);
@@ -48,11 +37,17 @@ const CartItem = ({ cartItem }) => {
           <p className="item-price">{priceItem.toLocaleString()}</p>
         </div>
         <div className="item-count">
-          <button className="item-min" onClick={onSub}>
+          <button
+            className="item-min"
+            onClick={() => dispatch({ type: "decrease" })}
+          >
             -
           </button>
           <div className="item-num">{state.count}</div>
-          <button className="item-add" onClick={onPlus}>
+          <button
+            className="item-add"
+            onClick={() => dispatch({ type: "increase" })}
+          >
             +
           </button>
         </div>

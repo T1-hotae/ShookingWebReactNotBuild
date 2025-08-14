@@ -1,7 +1,7 @@
 import Header from "../component/Header";
 import Info from "../component/Info";
 import ProductList from "../component/ProductList";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { ProductStateContext } from "../App";
 import useProduct from "../hooks/useProduct";
 
