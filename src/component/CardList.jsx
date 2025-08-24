@@ -1,5 +1,5 @@
 import "./CardList.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Card from "./Card";
 import Button from "./Button";
 
@@ -16,13 +16,19 @@ const CardList = ({ cardData = [] }) => {
       <div className="list_wrapper">
         {cardData.map((item) => (
           <div key={item.id} className="card-item">
-            <Card {...item} />
-            <Button text={"이 카드로 결제하기"} backgroundColor={"yellow"} />
+            <div onClick={() => nav(`/cardInfo/${item.id}`)}>
+              <Card {...item} />
+            </div>
+            <Button
+              text={"이 카드로 결제하기"}
+              backgroundColor={"yellow"}
+              onClick={() => nav("/amount")}
+            />
           </div>
         ))}
       </div>
 
-      <div className="cardAdd" onClick={() => nav("/cardinfo")}>
+      <div className="cardAdd" onClick={() => nav("/cardinfo/")}>
         +
       </div>
     </section>

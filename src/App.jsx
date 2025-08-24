@@ -60,6 +60,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/cardinfo" element={<CardInfo />} />
+            <Route path="/cardinfo/:id" element={<CardInfo />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/amount" element={<Amount />} />
           </Routes>

@@ -3,10 +3,10 @@ import Card from "./Card";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../App";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
-const CardForm = () => {
-  const nav = useNavigate();
+const CardForm = ({ initData }) => {
+  console.log("initData", initData);
 
   //카드 정보 받아오기
   const [input, setInput] = useState({
@@ -17,6 +17,8 @@ const CardForm = () => {
     pwd1: "",
     pwd2: "",
   });
+
+  const nav = useNavigate();
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
@@ -139,13 +141,15 @@ const CardForm = () => {
 
       {/* 완료 버튼 */}
       <section className="btn-complete">
-        {isComplete && (
+        {isComplete ? (
           <Button
             text={"작성 완료"}
             backgroundColor={"black"}
             onClick={onClickSubmit}
             width={"100"}
           />
+        ) : (
+          ""
         )}
       </section>
     </div>
