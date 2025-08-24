@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <>
-      <Header badgeCount={cartInfos.length} />
+      <Header badgeCount={cartInfos.length} backBtn={false} option={true} />
       <ProductInfo title={"신발 상품 목록"} count={products.length} />
       <ProductList products={products} />
     </>

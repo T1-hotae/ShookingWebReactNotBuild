@@ -9,18 +9,19 @@ const ProductCard = ({ id, name, info, price, img }) => {
   const nav = useNavigate();
 
   const { cartInfos } = useContext(ProductStateContext);
-  const { onCart } = useContext(ProductContext);
+  const { onCart, onDeleteCart } = useContext(ProductContext);
 
   const isAdd = cartInfos.some((item) => item.id === id);
   const itemPrice = Number(price.replace(",", "").replace("원", ""));
 
   const handleAddToCart = () => {
     if (isAdd) {
-      alert("해당 상품은 이미 담겨있습니다.");
-      return;
+      onDeleteCart(id);
+      alert(`${name}이(가) 카트에서 제거되었습니다.`);
+    } else {
+      onCart(id, itemPrice);
+      alert(`${name}이(가) 카트에 담겼습니다.`);
     }
-    onCart(id, itemPrice);
-    alert(`${name}이(가) 카트에 담겼습니다.`);
   };
 
   return (

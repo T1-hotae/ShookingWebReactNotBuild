@@ -4,7 +4,7 @@ import CartList from "../component/CartList";
 import Button from "../component/Button";
 import { useContext } from "react";
 import { ProductStateContext } from "../App";
-import { replace, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cartInfos } = useContext(ProductStateContext);

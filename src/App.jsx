@@ -43,6 +43,11 @@ function App() {
       return [...prevItems, { id, price }];
     });
   };
+  const onDeleteCart = (id) => {
+    setCartInfos((nextItems) => {
+      return nextItems.filter((item) => String(item.id) !== String(id));
+    });
+  };
 
   //Product 로딩
   const [loading, setLoading] = useState(true);
@@ -55,7 +60,9 @@ function App() {
   return (
     <>
       <ProductStateContext.Provider value={{ data, cartInfos }}>
-        <ProductContext.Provider value={{ onCreate, onCart }}>
+        <ProductContext.Provider
+          value={{ onCreate, onCart, onDeleteCart, setCartInfos }}
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/payment" element={<Payment />} />
