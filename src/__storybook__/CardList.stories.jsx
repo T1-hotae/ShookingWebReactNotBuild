@@ -1,4 +1,4 @@
-import CardList from "./CardList";
+import CardList from "../component/CardList";
 import { MemoryRouter } from "react-router-dom";
 
 export default {

@@ -1,4 +1,4 @@
-import CartItem from "./CartItem";
+import CartItem from "../component/CartItem";
 
 export default {
   title: "Example/CartItem",
