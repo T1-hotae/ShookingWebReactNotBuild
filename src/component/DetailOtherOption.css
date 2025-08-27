@@ -1,0 +1,41 @@
+.DetailOtherOption {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.detailOther-container {
+  width: 380px;
+  margin: 0px 50px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.detailOther-container > p,
+h3 {
+  margin: 5px;
+}
+
+.otherImg {
+  display: flex;
+  list-style: none;
+  padding: 0; /* 기본 padding 제거 */
+  margin: 0; /* 기본 margin 제거 */
+
+  margin: 0px 50px 30px;
+  gap: 25px;
+}
+
+.otherImg img {
+  width: 110px;
+  height: 110px;
+  border-radius: 25px;
+  object-fit: cover;
+
+  cursor: pointer;
+}

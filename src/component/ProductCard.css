@@ -7,7 +7,8 @@
   overflow: hidden;
   margin: 10px 15px;
 
-  min-width: 170px;
+  width: 190px;
+  height: 300px;
 }
 
 /* 카드 내부 위치 CSS 스타일 */
@@ -33,7 +34,7 @@
 }
 
 .product-info {
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 10px;
   height: 50%;
 }
 .product-btn {

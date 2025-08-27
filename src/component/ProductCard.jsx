@@ -25,7 +25,7 @@ const ProductCard = ({ id, name, info, price, img }) => {
   };
 
   return (
-    <div className="ProductCard">
+    <div className="ProductCard" onClick={() => nav(`/product/${id}`)}>
       <img src={img} alt="신발 이미지" />
       <div className="product-info">
         <h3>{name}</h3>
@@ -37,15 +37,21 @@ const ProductCard = ({ id, name, info, price, img }) => {
               text={!isAdd ? "담기" : "담김!"}
               backgroundColor={!isAdd ? "black" : "gray"}
               width={"60"}
-              onClick={handleAddToCart}
+              onClick={(e) => {
+                e.stopPropagation(); // 부모 div로 이벤트 전달 막기
+                handleAddToCart();
+              }}
             />
           </div>
           <div className="btn-buy">
             <Button
               text={"구매"}
               width={"60"}
-              onClick={() => nav("/payment")}
               backgroundColor={"yellow"}
+              onClick={(e) => {
+                e.stopPropagation(); // 부모 onClick 막기
+                nav("/payment");
+              }}
             />
           </div>
         </div>

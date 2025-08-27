@@ -23,6 +23,8 @@ header,
 /* Cart-Icon */
 
 .cart-icon {
+  display: flex;
+  justify-content: flex-end;
   position: relative;
   cursor: pointer;
 }
@@ -33,7 +35,7 @@ header,
   display: block; /* 불필요한 여백 제거 */
 }
 
-.cart-icon #badge {
+.cart-icon .badge {
   position: absolute;
   top: 0;
   right: 0;
@@ -47,9 +49,16 @@ header,
   font-weight: bold;
 }
 
-.header .arrowback {
+.cart-icon .badge-none {
+  background: none;
+  border: none;
+}
+
+.header .material-icons {
+  color: white;
+  display: flex;
   justify-content: flex-start;
   margin-right: auto;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
 }

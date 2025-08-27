@@ -1,0 +1,88 @@
+.DetailInfo {
+  display: flex;
+  justify-content: center; /* 가로 중앙 */
+  align-items: center; /* 세로 중앙 */
+  flex-direction: column; /* 기존 설정 유지 */
+
+  padding: 0px 30px;
+  margin-bottom: 0px;
+}
+
+/* 이미지 크기 컨테이너 */
+.detailImg-container {
+  display: flex;
+  justify-content: center;
+
+  width: 380px;
+  height: 480px;
+
+  margin-top: 30px;
+
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.detailImg {
+  display: flex;
+  justify-content: center;
+}
+
+.detailInfo-container {
+  display: flex;
+  width: 100%;
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+
+/* .detailProduct */
+
+.detailProduct {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 0px 8px;
+}
+
+.detailProduct .pdName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.detailProduct .pdInfo {
+  margin-top: 0px;
+  font-size: 16px;
+}
+
+.detailProduct .pdPrice {
+  margin-top: 0px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* .detailCounter */
+
+.detailCounter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.detailCounter > button {
+  display: flex;
+  border: none;
+  font-size: 24px;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailCounter > span {
+  font-size: 24px;
+}
+
+.detail-button {
+  width: 380px;
+}

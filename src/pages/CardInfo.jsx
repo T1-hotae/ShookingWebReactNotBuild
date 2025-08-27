@@ -1,7 +1,7 @@
 import HeaderPay from "../component/HeaderPay";
 import CardForm from "../component/CardForm";
 import { useParams } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ProductStateContext } from "../App";
 
 const CardInfo = () => {
@@ -13,10 +13,10 @@ const CardInfo = () => {
   );
 
   return (
-    <div>
+    <>
       <HeaderPay title={"카드 추가"} leftChild={true} />
       <CardForm initData={curCardData} data={data} />
-    </div>
+    </>
   );
 };
 

@@ -104,7 +104,7 @@ const CardForm = ({ initData }) => {
             value={input.cvc}
             onChange={onChangeInput}
             className="card-codeNum"
-            type="text"
+            type="password"
             maxLength={4}
             inputMode="numeric"
           />
@@ -121,7 +121,7 @@ const CardForm = ({ initData }) => {
             value={input.pwd1}
             onChange={onChangeInput}
             className="card-pwd1"
-            type="text"
+            type="password"
             maxLength={1}
             inputMode="numeric"
           />
@@ -130,7 +130,7 @@ const CardForm = ({ initData }) => {
             value={input.pwd2}
             onChange={onChangeInput}
             className="card-pwd2"
-            type="text"
+            type="password"
             maxLength={1}
             inputMode="numeric"
           />

@@ -7,6 +7,7 @@ import CardInfo from "./pages/CardInfo";
 import Cart from "./pages/Cart";
 import Amount from "./pages/Amount";
 import useProduct from "./hooks/useProduct";
+import ProductDetail from "./pages/ProductDetail";
 
 export const ProductStateContext = createContext();
 export const ProductContext = createContext();
@@ -70,6 +71,7 @@ function App() {
             <Route path="/cardinfo/:id" element={<CardInfo />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/amount" element={<Amount />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
           </Routes>
         </ProductContext.Provider>
       </ProductStateContext.Provider>

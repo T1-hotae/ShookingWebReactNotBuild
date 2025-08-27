@@ -1,5 +1,4 @@
 import shoppingIcon from "../assets/shoppingIcon.svg";
-import arrowback from "../assets/arrowback.svg";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
 
@@ -7,15 +6,23 @@ const Header = ({ badgeCount, backBtn, option }) => {
   const nav = useNavigate();
   return (
     <header className="header">
-      <div className="logo"></div>
+      <div>
+        {backBtn ? (
+          <span className="material-icons" onClick={() => nav("/")}>
+            arrow_back
+          </span>
+        ) : null}
+      </div>
+
       {option ? (
         <div className="cart-icon" onClick={() => nav("/cart")}>
           <img src={shoppingIcon} alt="장바구니 아이콘" />
-          <span id="badge">{badgeCount}</span>
+          <span
+            className={`badge ${badgeCount > 0 ? "badge-exist" : "badge-none"}`}
+          >
+            {badgeCount}
+          </span>
         </div>
-      ) : null}
-      {backBtn ? (
-        <img src={arrowback} className="arrowback" onClick={() => nav(-1)} />
       ) : null}
     </header>
   );
