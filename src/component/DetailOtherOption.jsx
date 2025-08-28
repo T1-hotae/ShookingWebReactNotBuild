@@ -9,7 +9,6 @@ const DetailOtherOption = ({ sameName, products }) => {
       String(item.name) === String(sameName) &&
       String(item.id) !== String(param.id)
   );
-  console.log(imgList);
   return (
     <div className="DetailOtherOption">
       <div className="detailOther-container">
@@ -18,7 +17,11 @@ const DetailOtherOption = ({ sameName, products }) => {
       </div>
       <div className="otherImg">
         {imgList.map((item) => (
-          <img src={item.img} onClick={() => nav(`/product/${item.id}`)} />
+          <img
+            key={item.id}
+            src={item.img}
+            onClick={() => nav(`/product/${item.id}`)}
+          />
         ))}
       </div>
     </div>

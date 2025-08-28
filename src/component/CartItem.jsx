@@ -1,29 +1,27 @@
 import { useContext, useReducer, useEffect } from "react";
-import { ProductContext } from "../App";
+import { ProductContext, ProductStateContext } from "../App";
 import "./CartItem.css";
-
-const initialState = {
-  count: 1,
-};
 
 function reducer(state, action) {
   switch (action.type) {
     case "increase":
-      return { count: state.count + 1 };
+      return state + 1;
     case "decrease":
-      return { count: Math.max(1, state.count - 1) };
+      return Math.max(1, state - 1);
+    default:
+      return state;
   }
 }
 
-const CartItem = ({ cartItem }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const CartItem = ({ cartItem, count }) => {
+  const [state, dispatch] = useReducer(reducer, count);
   const { onCart } = useContext(ProductContext);
 
   const priceFormatted = cartItem.price.replace(",", "").replace("원", "");
-  const priceItem = Number(priceFormatted * state.count);
+  const itemPrice = Number(priceFormatted * state);
 
   useEffect(() => {
-    onCart(cartItem.id, priceItem);
+    onCart(cartItem.id, itemPrice);
   }, [state]);
 
   return (
@@ -34,7 +32,7 @@ const CartItem = ({ cartItem }) => {
       <div className="item-info">
         <div className="item-text">
           <p className="item-Name">{cartItem.name}</p>
-          <p className="item-price">{priceItem.toLocaleString()}</p>
+          <p className="item-price">{itemPrice.toLocaleString()}</p>
         </div>
         <div className="item-count">
           <button
@@ -43,7 +41,7 @@ const CartItem = ({ cartItem }) => {
           >
             -
           </button>
-          <div className="item-num">{state.count}</div>
+          <div className="item-num">{state}</div>
           <button
             className="item-add"
             onClick={() => dispatch({ type: "increase" })}

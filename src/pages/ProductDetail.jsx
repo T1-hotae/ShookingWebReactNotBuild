@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../component/Header";
 import DetailInfo from "../component/DetailInfo";
 import DetailOtherOption from "../component/DetailOtherOption";
 import useProduct from "../hooks/useProduct";
+import { ProductStateContext } from "../App";
 
 const ProductDetail = () => {
+  const { cartInfos } = useContext(ProductStateContext);
   const param = useParams();
   const products = useProduct();
   if (products.length === 0) {
@@ -20,7 +23,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Header option={true} backBtn={true} />
+      <Header badgeCount={cartInfos.length} option={true} backBtn={true} />
       <DetailInfo product={curProduct} />
       <DetailOtherOption sameName={curProduct.name} products={products} />
     </>

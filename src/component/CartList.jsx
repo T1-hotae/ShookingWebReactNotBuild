@@ -17,7 +17,11 @@ const CartList = ({ cartInfos }) => {
         if (!product) return null;
         return (
           <div key={cartInfo.id}>
-            <CartItem key={cartInfo.id} cartItem={product} />
+            <CartItem
+              key={cartInfo.id}
+              cartItem={product}
+              count={cartInfo.count}
+            />
             <hr />
           </div>
         );

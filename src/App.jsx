@@ -32,7 +32,7 @@ function App() {
 
   //카트에 담긴 아이템들
   const [cartInfos, setCartInfos] = useState([]);
-  const onCart = (id, price = 0) => {
+  const onCart = (id, price = 0, count = 1) => {
     setCartInfos((prevItems) => {
       const exists = prevItems.some((item) => item.id === id);
       if (exists) {
@@ -41,9 +41,10 @@ function App() {
           item.id === id ? { ...item, price: price } : item
         );
       }
-      return [...prevItems, { id, price }];
+      return [...prevItems, { id, price, count }];
     });
   };
+
   const onDeleteCart = (id) => {
     setCartInfos((nextItems) => {
       return nextItems.filter((item) => String(item.id) !== String(id));

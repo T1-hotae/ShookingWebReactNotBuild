@@ -1,16 +1,26 @@
 import Button from "./Button";
 import "./DetailInfo.css";
 import { useEffect, useState, useContext } from "react";
-import { ProductContext } from "../App";
+import { ProductContext, ProductStateContext } from "../App";
+import { useParams } from "react-router-dom";
 
 const DetailInfo = ({ product }) => {
   const [count, setCount] = useState(1);
   useEffect(() => {
     setCount(1);
   }, [product]);
+
+  const params = useParams();
+
+  const { cartInfos } = useContext(ProductStateContext);
   const { onCart } = useContext(ProductContext);
 
-  const onDetailClick = () => {};
+  const productPrice = Number(product.price.replace(",", "").replace("원", ""));
+  const isAdd = cartInfos.some((item) => String(item.id) === String(params.id));
+
+  const onDetailClick = () => {
+    onCart(product.id, productPrice, count);
+  };
 
   return (
     // 이미지 정보
@@ -39,11 +49,15 @@ const DetailInfo = ({ product }) => {
       </div>
       {/* 상품 담기 */}
       <div className="detail-button">
-        <Button
-          text={"장바구니 담기"}
-          backgroundColor={"black"}
-          onClick={onDetailClick}
-        />
+        {!isAdd ? (
+          <Button
+            text={"장바구니 담기"}
+            backgroundColor={"black"}
+            onClick={onDetailClick}
+          />
+        ) : (
+          <Button text={"장바구니 담김!"} backgroundColor={"gray"} />
+        )}
       </div>
     </div>
   );
