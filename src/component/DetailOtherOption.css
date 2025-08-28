@@ -1,7 +1,7 @@
 .DetailOtherOption {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 480px;
 
   margin-top: 20px;
   justify-content: center;
@@ -23,7 +23,6 @@ h3 {
 
 .otherImg {
   display: flex;
-  width: 100%;
 
   list-style: none;
   padding: 0; /* 기본 padding 제거 */
