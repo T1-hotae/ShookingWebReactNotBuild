@@ -10,12 +10,9 @@ const Cart = () => {
   const { cartInfos } = useContext(ProductStateContext);
   const nav = useNavigate();
 
-  const onAmountClick = () => {
-    if (cartInfos) {
-      return nav("/amount", { replace: true });
-    } else {
-      alert("상품을 담아주세요");
-    }
+  const onCardClick = () => {
+    if (cartInfos && cartInfos.length > 0) return nav("/amount");
+    else return alert("장바구니가 비어있습니다.");
   };
 
   return (
@@ -30,7 +27,7 @@ const Cart = () => {
         text={"결제하기"}
         backgroundColor={"yellow"}
         width={"540"}
-        onClick={onAmountClick}
+        onClick={onCardClick}
       />
     </>
   );

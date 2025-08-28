@@ -1,10 +1,18 @@
 import "./CardList.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import Button from "./Button";
+import { useContext } from "react";
+import { ProductStateContext } from "../App";
 
 const CardList = ({ cardData = [] }) => {
   const nav = useNavigate();
+  const { cartInfos } = useContext(ProductStateContext);
+
+  const onCardClick = () => {
+    if (cartInfos && cartInfos.length > 0) return nav("/amount");
+    else return alert("장바구니가 비어있습니다.");
+  };
 
   return (
     <section className="CardList">
@@ -22,7 +30,7 @@ const CardList = ({ cardData = [] }) => {
             <Button
               text={"이 카드로 결제하기"}
               backgroundColor={"yellow"}
-              onClick={() => nav("/amount")}
+              onClick={onCardClick}
             />
           </div>
         ))}
